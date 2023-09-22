@@ -46,6 +46,29 @@ class ModalUser extends Component {
       ...copyState,
     });
   };
+
+  checkValidateInput = () => {
+    let isValid = true;
+    const arrInput = ["email", "password", "firstName", "lastName", "address"];
+    for (let i in arrInput) {
+      console.log("check", this.state[arrInput[i]], arrInput[i]);
+      if (!this.state[arrInput[i]]) {
+        isValid = false;
+        alert("missing parameter: " + arrInput[i]);
+        break;
+      }
+    }
+    return isValid;
+  };
+  handleAddNew = () => {
+    //validate
+    let isValid = this.checkValidateInput();
+    if (isValid === true) {
+      //call API create user
+      this.props.createUser(this.state);
+      console.log("data", this.state);
+    }
+  };
   render() {
     return (
       <Modal
@@ -79,6 +102,7 @@ class ModalUser extends Component {
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 onChange={(event) => this.handleOnchange(event, "email")}
+                value={this.state.email}
               />
             </div>
             <div className="input-group mb-3 custom-password">
@@ -94,6 +118,7 @@ class ModalUser extends Component {
                 aria-label="Password"
                 aria-describedby="basic-addon1"
                 onChange={(event) => this.handleOnchange(event, "password")}
+                value={this.state.password}
               />
               <span onClick={() => this.handleShowHide()}>
                 <i
@@ -116,6 +141,7 @@ class ModalUser extends Component {
                 aria-label="First name"
                 aria-describedby="basic-addon1"
                 onChange={(event) => this.handleOnchange(event, "firstName")}
+                value={this.state.firstName}
               />
             </div>
             <div className="input-group mb-3">
@@ -131,6 +157,7 @@ class ModalUser extends Component {
                 aria-label="Last name"
                 aria-describedby="basic-addon1"
                 onChange={(event) => this.handleOnchange(event, "lastName")}
+                value={this.state.lastName}
               />
             </div>
             <div className="input-group mb-3">
@@ -146,6 +173,7 @@ class ModalUser extends Component {
                 aria-label="Address"
                 aria-describedby="basic-addon1"
                 onChange={(event) => this.handleOnchange(event, "address")}
+                value={this.state.address}
               />
             </div>
           </div>
@@ -155,7 +183,7 @@ class ModalUser extends Component {
             color="success"
             className="px-3"
             onClick={() => {
-              this.toggle();
+              this.handleAddNew();
             }}
           >
             Add new

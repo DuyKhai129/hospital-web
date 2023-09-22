@@ -104,22 +104,23 @@ const createNewUser = (data) => {
           errMessage:
             "Your email already exists in the system. Please use a different email!",
         });
+      } else {
+        let hashPass = await hashPassword(data.password);
+        await db.User.create({
+          email: data.email,
+          password: hashPass,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          address: data.address,
+          phoneNumber: data.phoneNumber,
+          gender: data.gender === "1" ? true : false,
+          role: data.role,
+        });
+        resolve({
+          errCode: 0,
+          errMessage: "Success!",
+        });
       }
-      let hashPass = await hashPassword(data.password);
-      await db.User.create({
-        email: data.email,
-        password: hashPass,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        address: data.address,
-        phoneNumber: data.phoneNumber,
-        gender: data.gender === "1" ? true : false,
-        role: data.role,
-      });
-      resolve({
-        errCode: 0,
-        errMessage: "Success!",
-      });
     } catch (error) {
       reject(error);
     }

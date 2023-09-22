@@ -1,2 +1,2 @@
 export { default as adminService } from "./adminService";
-export { handleLoginAPI, getAllUsers } from "./userService";
+export { handleLoginAPI, getAllUsers, createUserService } from "./userService";
