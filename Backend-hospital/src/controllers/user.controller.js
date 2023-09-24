@@ -45,7 +45,7 @@ const handleEditUser = async (req, res) => {
   return res.status(200).json(message);
 };
 const handleDeleteUser = async (req, res) => {
-  const id = req.query.id;
+  const id = req.body.id;
   if (!id) {
     return res.status(201).json({
       errCode: 1,
