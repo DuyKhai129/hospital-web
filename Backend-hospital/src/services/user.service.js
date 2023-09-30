@@ -167,11 +167,11 @@ const updateUser = (data) => {
         (user.firstName = data.firstName),
           (user.lastName = data.lastName),
           (user.address = data.address),
-          (user.phoneNumber = data.phoneNumber),
-          (user.gender = data.gender),
-          (user.role = data.role),
-          (user.image = data.image),
-          (user.position = data.position),
+          // (user.phoneNumber = data.phoneNumber),
+          // (user.gender = data.gender),
+          // (user.role = data.role),
+          // (user.image = data.image),
+          // (user.position = data.position),
           await user.save();
         resolve({
           errCode: 0,

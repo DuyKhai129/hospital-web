@@ -4,4 +4,5 @@ export {
   getAllUsers,
   createUserService,
   delUserService,
+  editUserService,
 } from "./userService";
