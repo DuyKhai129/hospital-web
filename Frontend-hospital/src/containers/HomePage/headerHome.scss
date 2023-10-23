@@ -1,21 +1,22 @@
 .home-header-container{
     height: 70px;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 30px;
     .home-header-content{
         width: 100%;
         height: 100%;
         display: flex;
         .left-content{
-            width: 25%;
+            width: 20%;
             display: flex;
             align-items: center;
-            border: 1px solid gray;
+           
             .logo{
-                background: url("../../assets/logo.PNG") center center no-repeat;
                 height: 100%;
                 width: 100%;
                 cursor: pointer;
+                transform: scale(0.5,0.5);
+                margin-left: -45px;
             }
             i{
                 font-size: 25px;
@@ -24,8 +25,7 @@
             }
         }
         .center-content{
-            width: 50%;
-            border: 1px solid green;
+            width: 55%;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -36,10 +36,139 @@
         }
         .right-content{
             width: 25%;
-            border: 1px solid blueviolet;
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-end;
             align-items: center;
+            .support{
+                padding-right: 50px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                i{
+                    margin-right: 5px;
+                }
+            }
+            .iconVI{
+                width: 35px;
+                cursor: pointer;
+                &.active{
+                    border: 1px solid red;
+                }
+            }
+            .iconEN{
+                width: 35px;
+                cursor: pointer;
+                &.active{
+                    border: 1px solid red;
+                }
+            }
         }
     }
+}
+.home-banner{
+    background: url("../../assets/images/background.jpg");
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .content-up{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25),rgba(255, 255, 255, 0.1));
+        height: 65%;
+        padding-top: 15px;
+        .title{
+            h1{
+               color: #fff;
+               font-size: 30px;
+               margin-bottom: 15px;
+               text-transform: uppercase;
+               text-shadow: 1px 1px 1px #333;
+            }
+           }
+           .search{
+               width: fit-content;
+               display: flex;
+               justify-content: center;
+               margin: 0 auto;
+               align-items: center;
+               padding: 10px;
+               border-radius: 25px;
+               border: 1px solid;
+               background: #f1d305;
+               border: none;
+               i{
+                   margin: 0 5px;
+               }
+               input{
+                   height: 30px;
+                   width: 360px;
+                   background: transparent;
+                   border: none;
+                   outline: none;
+               }
+           }
+           .app-link{
+               margin-top: 40px;
+               display: flex;
+               justify-content: center;
+               .google-play{
+                   background: url("../../assets/images/googlePlay.PNG");
+                   width: 144px;
+                   height: 38px;
+                   margin: 5px;
+                   border-radius: 10px;
+                   cursor: pointer;
+               }
+               .app-store{
+                   background: url("../../assets/images/appStore.PNG");
+                   width: 144px;
+                   height: 38px;
+                   margin: 5px;
+                   border-radius: 10px;
+                   cursor: pointer;
+               }
+           }
+    }
+    .content-down{
+        height: 35%;
+        padding: 0px 15%;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 1));
+        .options{
+      
+            text-align: center;
+            -ms-box-orient: horizontal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          
+            .option-child{
+                cursor: pointer;
+                width: 130px;
+                margin: 20px;
+                .icon-child{
+                    background: white;
+                    width: 35px;
+                    height: 35px;
+                    padding: 5px;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin: 0 auto;
+                .icon{
+                    height: 25px;
+                    width: 25px;
+                }
+                }
+               .text-child {
+                font-size: 18px;
+                font-weight: 545;
+        
+                &:hover{
+                    color: #45c3d2;
+                   
+                }
+            }
+            }
+    
+        }
+    }
+  
 }
